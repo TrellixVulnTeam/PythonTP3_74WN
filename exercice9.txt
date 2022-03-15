@@ -1,0 +1,11 @@
+	------------
+	TP3 - Python
+	------------
+
+	// Exercice 9 :
+
+* esiea.fr : 149.62.158.57
+{"IP":"149.62.158.57","Organization":"NAITWAYS SAS","Country":"France"} 
+
+* lemonde.fr : 151.101.2.137
+{"IP":"151.101.2.137","Organization":"Fastly","Country":"United States"} 
