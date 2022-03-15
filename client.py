@@ -19,7 +19,7 @@ class MainWindow(QWidget):
 
     def initUI(self):
         self.setWindowTitle("Client")
-        self.setFixedSize(400, 400)
+        self.setFixedSize(1000, 400)
         self.label1 = QLabel("Enter your hostname IP:", self)
         self.label1.move(10, 10)
         self.text = QLineEdit(self)
@@ -56,7 +56,7 @@ class MainWindow(QWidget):
         else:
             res = self.__query(hostname, addip, apikey)
             if res:
-                self.label4.setText("Answer%s" % (res["Hello"]))
+                self.label4.setText(str(res))
                 self.label4.adjustSize()
                 self.show()
 
