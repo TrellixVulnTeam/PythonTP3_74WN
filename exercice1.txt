@@ -7,10 +7,11 @@
 * Question 1 :
 Un serveur web est un serveur informatique qui répond à des requêtes du
 World Wide Web en utilisant le protocole HTTP.
+--> Exemple : Apache
 
 * Question 2 :
-Une API REST est une interface de programmation d'application (API = définitions et
-protocoles informatiques) qui respecte l'architecture REST (normes).
+Une API REST est une interface de programmation d'application (API) qui respecte
+l'architecture REST (règles, normes).
 
 * Question 3 :
 FastAPI permet de créer des API avec Python (application).
