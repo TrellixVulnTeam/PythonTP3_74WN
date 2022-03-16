@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import (
     QLabel,
     QMessageBox,
 )
-from PyQt5.Qt import QUrl, QDesktopServices
+from PyQt5.Qt import QUrl, QDesktopServices 
 import requests
 import sys
 
@@ -37,12 +37,11 @@ class MainWindow(QWidget):
 
         self.button = QPushButton("Send", self)
         self.button.move(10, 240)
+        self.button.clicked.connect(self.on_click)
+        self.button.pressed.connect(self.on_click)
 
         self.label4 = QLabel("Answer:", self)
         self.label4.move(10, 300)
-
-        self.button.clicked.connect(self.on_click)
-        self.button.pressed.connect(self.on_click)
 
         self.show()
 
@@ -58,8 +57,19 @@ class MainWindow(QWidget):
             if res:
                 self.label4.setText(str(res))
                 self.label4.adjustSize()
+                print(res)
+                lat = res["lat"]
+                long = res["long"]
+                lat = str(lat)
+                long = str(long)
+                url2 = "https://www.openstreetmap.org/?mlat=" + lat + "&mlon=" + long + "#map=12"
+                print(lat)
+                print(long)
+                print(url2)
+                QDesktopServices.openUrl(QUrl(url2))
+                requests.get(url2)
                 self.show()
-
+    
     def __query(self, hostname, addip, apikey):
         url = "http://" + hostname + "/ip/" + addip + "?key=" + apikey
         r = requests.get(url)
@@ -67,7 +77,6 @@ class MainWindow(QWidget):
             QMessageBox.about(self, "Error", "IP not found")
         if r.status_code == requests.codes.OK:
             return r.json()
-
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
